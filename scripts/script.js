@@ -1,6 +1,8 @@
 let formElem = document.querySelector(".input-area");
 let thumbBarElem = document.querySelector("#thumb-bar");
 let mainImageElem = document.querySelector(".displayed-img");
+let submitButtonElem = document.querySelector("button");
+let inputElem = document.querySelector("#effect");
 
 formElem.style.visibility = "hidden";
 
@@ -26,5 +28,29 @@ function onImageHover(event) {
     if (event.target.nodeName === "IMG") {
         mainImageElem.setAttribute("src", `${event.target.src}`)
         mainImageElem.setAttribute("alt", `Enlarged ${event.target.alt}`)
+    }
+}
+
+
+submitButtonElem.addEventListener("click", onSubmitClick);
+
+function onSubmitClick() {
+
+    if (inputElem.value === "blur") {
+        if (!mainImageElem.alt.includes("Blurred")){
+            let currentImgSrc = mainImageElem.src;
+            let splitSrc = currentImgSrc.split(".jpg");
+            let blurredImgSrc = splitSrc[0] + "B.jpg";
+
+            mainImageElem.src = blurredImgSrc;
+            mainImageElem.alt += " (Blurred)";
+        }
+        else
+        {
+            alert("The image is already blurred.")
+        }
+    } 
+    else {
+        alert("Sorry, this effect has not been implemented yet!")
     }
 }
