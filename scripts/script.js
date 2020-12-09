@@ -23,7 +23,8 @@ function onImageHover(event) {
 
     formElem.style.visibility = "visible";
 
-    mainImageElem.setAttribute("src", `${event.target.src}`)
-    mainImageElem.setAttribute("alt", `Enlarged ${event.target.alt}`)
-
+    if (event.target.nodeName === "IMG") {
+        mainImageElem.setAttribute("src", `${event.target.src}`)
+        mainImageElem.setAttribute("alt", `Enlarged ${event.target.alt}`)
+    }
 }
