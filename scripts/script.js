@@ -28,6 +28,8 @@ function onImageHover(event) {
     if (event.target.nodeName === "IMG") {
         mainImageElem.setAttribute("src", `${event.target.src}`)
         mainImageElem.setAttribute("alt", `Enlarged ${event.target.alt}`)
+        mainImageElem.setAttribute("width", "100%")
+        mainImageElem.setAttribute("height", "100%")
     }
 }
 
