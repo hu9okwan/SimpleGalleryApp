@@ -55,4 +55,6 @@ function onSubmitClick() {
     else {
         alert("Sorry, this effect has not been implemented yet!")
     }
+
+    inputElem.value = "";
 }
